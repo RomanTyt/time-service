@@ -1,5 +1,6 @@
 package ru.tyutyakov.timeservice.controller;
 
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -24,6 +25,7 @@ public class TimeController {
     }
 
     @GetMapping
+    @Operation(summary = "Получить текущую дату и время")
     public ResponseEntity<LocalDateTime> getCurrentTime() {
         LocalDateTime now = timeService.getTime();
         log.info("Метод вызван в: " + now);
